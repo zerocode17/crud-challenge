@@ -1,6 +1,6 @@
 ## Overview
 
-This is a solution for a NextJS challenge to make a website where authenticated users can create posts and comments with texts or images. The has no routes, it handles everything in the home page, revalidating only necessary data, e.g. when adding post it revalidates the path but for comments the approach is to use optimistic UI and update the UI locally, that way when adding a comment it doesn't fetch all the posts again.
+This is a solution for a NextJS challenge to make a website where authenticated users can create posts and comments with texts or images. The app has no routes, it handles everything in the home page, revalidating only necessary data, e.g. when adding post it revalidates the path but for comments the approach is to use optimistic UI and update the UI locally, that way when adding a comment it doesn't fetch all posts again.
 
 ## Architecture
 
@@ -13,17 +13,15 @@ The application is built using the NextJS framework, which provides server-side 
 
 ## Approach and Methodology
 
-The development approach follows best practices for building scalable and maintainable web applications. Key methodologies include:
-
 - **Component-Based Architecture**: The application is divided into reusable components to promote code reusability and maintainability.
 - **Server-Side Rendering (SSR)**: Utilized to improve performance and SEO by rendering pages on the server.
 - **Authentication**: Implemented to ensure that only authenticated users can create posts and comments.
 - **Responsive Design**: Ensures the application is accessible and usable on various devices and screen sizes.
 - **Supabase**: Used as the backend service for authentication and database management.
-- **Shadcn**: Utilized for building accessible and customizable UI components.
-- **TailwindCSS**: Used for styling the application with utility-first CSS.
-- **Server Actions**: Used to interact with the database, ensuring efficient data handling.
-- **Optimistic UI**: Implemented to provide a responsive and smooth user experience by updating the UI before the server confirms the action.
+- **TailwindCSS**: Used for styling the application.
+- **Shadcn**: Utilized for building accessible and customizable UI components, used in conjuctin with Tailwindcss to quickly make a clean looking page.
+- **Server Actions**: Used to interact with the database, ensuring efficient data handling. I opted for server actions over route handlers because they provided the most straightforward and efficient approach for this challenge’s requirements.
+- **Optimistic UI**: Implemented to enhance responsiveness by updating the UI instantly before server confirmation. This was applied specifically to comment creation, not posts. In a real-world scenario, users typically post comments more frequently than full posts, making a smoother experience more valuable for comments. Additionally, since posts are generally considered more "important," ensuring their accuracy by waiting for database confirmation is a better approach in my opinion.
 
 ## Running the Application Locally
 
