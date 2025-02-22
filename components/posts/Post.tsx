@@ -39,7 +39,7 @@ export default async function Post({ post }: { post: PostWithAuthor }) {
           className="rounded-lg w-full max-h-[700px] mx-auto"
         />
       )}
-      <Comments comments={comments} />
+      <Comments comments={comments} postId={post.id} />
     </div>
   );
 }

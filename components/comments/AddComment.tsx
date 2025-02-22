@@ -73,9 +73,9 @@ export default function AddComment({ postId, addComment }: AddCommentProps) {
           setImage(null);
 
           addComment({
+            postId: postId,
             comment: currentComment,
             image: currentImage,
-            postId,
             user,
           });
         }}

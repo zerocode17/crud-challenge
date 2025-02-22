@@ -17,7 +17,10 @@ export async function createComment({
 }: CreateCommentParams) {
   const userId = (await getUser())?.id;
 
-  if (!userId || (!content && !imageFile) || !postId) return;
+  if (!userId || (!content && !imageFile) || !postId) {
+    console.error("Invalid data");
+    return;
+  }
 
   const supabase = await createClient();
 
@@ -39,7 +42,7 @@ export async function createComment({
     imageUrl = urlData.publicUrl;
   }
 
-  // Create post
+  // Create comment
   const { error } = await supabase.from("comments").insert([
     {
       user_id: userId,

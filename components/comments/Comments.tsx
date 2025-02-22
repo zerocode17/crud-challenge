@@ -19,8 +19,10 @@ export type addCommentParams = {
 
 export default function Comments({
   comments,
+  postId,
 }: {
   comments: CommentWithAuthor[];
+  postId: string;
 }) {
   const { user } = useAuth();
   const [commentsLimit, setCommentsLimit] = useState(5);
@@ -94,9 +96,7 @@ export default function Comments({
         )}
         <div></div>
       </div>
-      {user && (
-        <AddComment postId={comments[0]?.post_id} addComment={addComment} />
-      )}
+      {user && <AddComment postId={postId} addComment={addComment} />}
     </>
   );
 }

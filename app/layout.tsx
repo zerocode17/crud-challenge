@@ -30,6 +30,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body
         className={cn(geistSans.variable, geistMono.variable, "antialiased")}
+        suppressHydrationWarning
       >
         <Header />
         <AuthProvider>{children}</AuthProvider>
