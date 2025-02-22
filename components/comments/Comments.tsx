@@ -68,7 +68,9 @@ export default function Comments({
       comments.push(newComment);
     } catch (error) {
       console.error(error);
-      toast.error("Failed to add comment");
+      toast.error("Failed to add comment", {
+        style: { background: "#7f1d1d", color: "#fff", borderColor: "#7f1d1d" },
+      });
     }
   }
 

@@ -52,7 +52,7 @@ export async function createComment({
     },
   ]);
 
-  if (error) throw error;
+  if (error) throw Error("Failed to create comment");
 }
 
 export async function getComments(postId: string) {
