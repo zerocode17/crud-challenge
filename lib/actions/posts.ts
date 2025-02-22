@@ -25,11 +25,6 @@ export async function getPosts() {
   return data as PostWithAuthor[];
 }
 
-type CreatePostParams = {
-  userId: string;
-  content: string | null;
-  imageFile: File | null;
-};
 export async function createPost(previousState: unknown, formData: FormData) {
   const content = formData.get("content") as string;
   const imageFile = formData.get("image") as File;
@@ -42,7 +37,7 @@ export async function createPost(previousState: unknown, formData: FormData) {
     const fileExt = imageFile.name.split(".").pop();
     const fileName = `${userId}/${Date.now()}.${fileExt}`;
 
-    const { data, error } = await supabase.storage
+    const { error } = await supabase.storage
       .from("post_images")
       .upload(fileName, imageFile);
     if (error) throw new Error(`Error uploading image: ${error.message}`);
@@ -55,7 +50,7 @@ export async function createPost(previousState: unknown, formData: FormData) {
   }
 
   // Create post
-  const { data, error } = await supabase.from("posts").insert([
+  const { error } = await supabase.from("posts").insert([
     {
       user_id: userId,
       content: content?.trim() || null,

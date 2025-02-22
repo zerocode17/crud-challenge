@@ -12,7 +12,7 @@ export async function getUser() {
 
 export async function LogOut() {
   const supabase = await createClient();
-  const { error } = await supabase.auth.signOut();
+  await supabase.auth.signOut();
   redirect("/");
 }
 

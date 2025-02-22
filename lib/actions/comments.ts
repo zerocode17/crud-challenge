@@ -27,7 +27,7 @@ export async function createComment({
     const fileExt = imageFile.name.split(".").pop();
     const fileName = `${userId}/${Date.now()}.${fileExt}`;
 
-    const { data, error } = await supabase.storage
+    const { error } = await supabase.storage
       .from("comment_images")
       .upload(fileName, imageFile);
     if (error) throw new Error(`Error uploading image: ${error.message}`);
@@ -40,7 +40,7 @@ export async function createComment({
   }
 
   // Create post
-  const { data, error } = await supabase.from("comments").insert([
+  const { error } = await supabase.from("comments").insert([
     {
       user_id: userId,
       post_id: postId,

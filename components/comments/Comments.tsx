@@ -8,6 +8,7 @@ import { createComment } from "@/lib/actions/comments";
 import { User } from "@supabase/supabase-js";
 import { useAuth } from "../providers/AuthProvider";
 import { Button } from "../ui/button";
+import { toast } from "sonner";
 
 export type addCommentParams = {
   comment: string | null;
@@ -63,7 +64,10 @@ export default function Comments({
     try {
       await createComment({ postId, content: comment, imageFile: image });
       comments.push(newComment);
-    } catch (error) {}
+    } catch (error) {
+      console.error(error);
+      toast.error("Failed to add comment");
+    }
   }
 
   return (
