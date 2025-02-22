@@ -51,13 +51,11 @@ To run the application locally, follow these steps:
    SITE_URL=http://localhost:3000
    ```
 
-````
-
 4. **Run the development server**:
 
-```sh
-pnpm dev
-````
+   ```sh
+   pnpm dev
+   ```
 
 5. **Open the application**:
    Open your browser and navigate to `http://localhost:3000`.
