@@ -36,7 +36,7 @@ export default async function Post({ post }: { post: PostWithAuthor }) {
           alt="Post Image"
           width={400}
           height={400}
-          className="rounded-lg w-full max-h-[700px] mx-auto"
+          className="rounded-lg w-full max-h-[700px] mx-auto object-cover"
         />
       )}
       <div>
