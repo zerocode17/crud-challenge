@@ -29,7 +29,7 @@ export default async function Post({ post }: { post: PostWithAuthor }) {
           </span>
         </div>
       </div>
-      {post.content && <div className="pb-4">{post.content}</div>}
+      {post.content && <div className="">{post.content}</div>}
       {post.image_url && (
         <Image
           src={post.image_url}
@@ -39,7 +39,9 @@ export default async function Post({ post }: { post: PostWithAuthor }) {
           className="rounded-lg w-full max-h-[700px] mx-auto"
         />
       )}
-      <Comments comments={comments} postId={post.id} />
+      <div>
+        <Comments comments={comments} postId={post.id} />
+      </div>
     </div>
   );
 }

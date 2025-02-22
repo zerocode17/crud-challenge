@@ -94,7 +94,6 @@ export default function Comments({
             </Button>
           </>
         )}
-        <div></div>
       </div>
       {user && <AddComment postId={postId} addComment={addComment} />}
     </>
