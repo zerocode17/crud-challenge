@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export default function Comment({ comment }: { comment: CommentWithAuthor }) {
   return (
-    <div className="py-6">
+    <div className="py-1">
       <div className="flex gap-2 items-center p-2">
         {comment.author.avatar_url ? (
           <Image
